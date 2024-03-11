@@ -1,0 +1,40 @@
+{% extends 'core\base.html' %}
+{% block titlt %}
+main
+{% endblock %}
+
+{% block content %}
+<div class="px-4 py-4 bg-gray-200">
+    <div class="px-4 py-4 bg-gray-100">
+        <h2 class="text-start text-2xl font-bold">Categories</h2>
+        <div class="grid grid-cols-9">
+            {% for c in Categories %}
+            <div>
+                <a href="#">
+                    <div>
+                        <h2 class="font-sans font-md font-semibold">{{c.name}}</h2>
+                        <p>{{c.items.count}} items</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h2 class="text-center py-4 font-xl font-bold"> Newest items</h2>
+    <div class="grid grid-cols-9 gap-2">
+        {% for item in products %}
+        <div>
+            <a href="{% url 'jumia:detail' item.id %}">
+                <div>
+                    <img src="{{item.image.url}}" alt="" class="w-48 rounded-t-xl">
+                </div>
+                <div class="text-sm bg-white font-mono px-2 rounded-b-xl">
+                    <span><h2>{{item.name}}</h2></span>
+                    <span><p>shs.{{item.price}}</p></span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

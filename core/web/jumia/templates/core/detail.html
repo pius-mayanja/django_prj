@@ -1,0 +1,39 @@
+{% extends 'core\base.html' %}
+
+{% block title%}{{item.name}}{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-5 gap-6 p-4">
+    <div class="col-span-1">
+        <img src="{{item.image.url}}" class="rounded-xl w-full">
+    </div>
+    <div class="col-span-4">
+        <h2 class="font-semibold text-2xl">{{item.name}}</h2>
+        <p class="text-blue-500 font-bold">{{item.Category}}</p>
+        <p class="text-gray-700 font-mono">Price: shs.{{item.price}}</p>
+        <p class="border border-green-200 p-2 mt-2">{{item.description}}</p>
+        <p class="text-gray-700 font-mono text-sm">product by: {{item.product_by}}</p>
+        <div class="mt-4">
+            <a href="#" class="text-sm text-white border bg-red-500 border-black rounded-full px-4">Add to cart</a>
+            <a href="#" class="text-sm text-white border bg-green-500 border-black rounded-full px-4">Contact seller</a>
+        </div>
+    </div>
+</div>
+<div><h2 class="text-center font-bold text-2xl">Related items</h2></div>
+<div class="grid grid-cols-9 gap-4 p-3 bg-gray-200">
+    {% for item in related_items %}
+    <div>
+        <a href="{% url 'jumia:detail' item.id %}">
+            <div>
+                <img src="{{item.image.url}}" alt="" class="w-48 rounded">
+            </div>
+            <div class="text-sm bg-white font-mono px-2 rounded">
+                <span><h2>{{item.name}}</h2></span>
+                <span><p>shs.{{item.price}}</p></span>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

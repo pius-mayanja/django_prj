@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock %}| jumia</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="p-6 flex justify-between border-b border-gray-200 bg-green-100">
+        <a href="" class="text-4xl">JUMIA 
+            <svg class= "w-8 inline-block mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+        </a>
+        <div class="space-x-4">
+            <a href="{% url 'jumia:index' %}" class="border rounded-xl bg-gray-300 text-blue-700 px-4">Home</a>
+            <a href="#" class="bg-red-100 border border-red-500 rounded-full px-4 py-1 font-semibold hover:text-white hover:bg-red-500">Login</a>
+            <a href="#" class="bg-red-100 border border-red-500 rounded-full px-4 py-1 font-semibold hover:text-white hover:bg-red-500">Sign up</a>
+        </div>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="bg-green-100 mt-3 p-4 font-semibold font-mono">
+        <div class="flex justify-center space-x-4">
+            <a href="">About</a>
+            <a href="#">Privacy policy</a>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <p>follow us on</p>
+            <a href="#">X</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+</body>
+</html>
